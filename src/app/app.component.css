@@ -1,0 +1,13 @@
+/* Custom CSS class for green background */
+.highlight-green {
+    background-color: lightgreen;
+}
+
+/* Hover effect for highlighted rows */
+.highlight-green:hover {
+    background-color: limegreen; /* Change to a darker green on hover */
+}
+
+body{
+    background: red;
+}

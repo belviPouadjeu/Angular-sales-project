@@ -1,20 +1,41 @@
- <table class="table table-hover">
+<!-- Table with hover effect styling -->
+<table class="table table-hover">
 
+    <!-- Table header with dark background -->
     <thead class="table-dark">
         <tr>
+            <!-- Column headers -->
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
             <th>Sales Volume</th>
+            <th>Met Quota?</th>
         </tr>
     </thead>
 
+    <!-- Table body -->
     <tbody>
-        <tr *ngFor="let tempSalesPerson of salesPersonList" >
+
+        <!-- Loop through the salesPersonList array using *ngFor -->
+        <tr *ngFor="let tempSalesPerson of salesPersonList">
+            <!-- Display the first name of the current sales person -->
             <td>{{ tempSalesPerson.firstName }}</td>
+            <!-- Display the last name of the current sales person -->
             <td>{{ tempSalesPerson.lastName }}</td>
+            <!-- Display the email of the current sales person -->
             <td>{{ tempSalesPerson.email }}</td>
-            <td>{{ tempSalesPerson.salesVolume }}</td>
+            <!-- Display the sales volume of the current sales person, formatted as currency (FCFA) -->
+            <td>{{ tempSalesPerson.salesVolume | currency: 'FCFA ' }}</td>
+
+            <!-- Check if the sales person met their quota -->
+            <td>
+                <!-- If sales volume is greater than or equal to 60,000, display "Yes" -->
+                <div *ngIf="tempSalesPerson.salesVolume >= 60000; else myElseBlock">Yes</div>
+                <!-- If sales volume is less than 60,000, display "No" using ng-template -->
+                <ng-template #myElseBlock>No</ng-template>
+            </td>
         </tr>
+
     </tbody>
+
 </table>
