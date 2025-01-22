@@ -135,24 +135,24 @@ new SalesPerson("Mai", "Truong", "mai.truong@luv2code.com", 60000)
 
  **File**: `src/app/sales-person-list/sales-person-list.component.html`
 
- ```html
- <table border="1"> 
-<thead> 
-<tr> 
-<th>First Name</th> 
-<th>Last Name</th> 
-<th>Email</th> 
-<th>Sales Volume</th> 
-</tr>             
-</thead> 
-<tbody> 
-<tr *ngFor="let tempSalesPerson of salesPersonList"> 
-<td>{{ tempSalesPerson.firstName }}</td> 
-<td>{{ tempSalesPerson.lastName }}</td> 
-<td>{{ tempSalesPerson.email }}</td> 
-<td>{{ tempSalesPerson.salesVolume }}</td> 
-</tr> 
-</tbody> 
+```html
+<table border="1"> 
+  <thead> 
+    <tr> 
+      <th>First Name</th> 
+      <th>Last Name</th> 
+      <th>Email</th> 
+      <th>Sales Volume</th> 
+    </tr>             
+  </thead> 
+  <tbody> 
+    <tr *ngFor="let tempSalesPerson of salesPersonList"> 
+    <td>{{ tempSalesPerson.firstName }}</td> 
+    <td>{{ tempSalesPerson.lastName }}</td> 
+    <td>{{ tempSalesPerson.email }}</td> 
+    <td>{{ tempSalesPerson.salesVolume }}</td> 
+    </tr> 
+  </tbody> 
 </table>
 
 ```
@@ -161,3 +161,158 @@ new SalesPerson("Mai", "Truong", "mai.truong@luv2code.com", 60000)
  - ngFor is a structural directive
  - It renders a template for each item in a collection
  - For complete documentation and examples, see:
+
+
+# Integrate Angular with Bootstrap
+
+###  Development Process
+
+1. Get links for remote Bootstrap files 
+2. Add links to index.html 
+3. Apply Bootstrap CSS styles in component HTML template 
+4. Apply Bootstrap CSS styles in component HTML table 
+5. Update TypeScript component file to reference Bootstrap HTML template
+
+### Step 1: Get links for remote Bootstrap files
+- Visit Bootstrap website: www.getbootstrap.com 
+- Website has instructions on how to Get Started
+
+### Step 2: Add links in index.html
+
+```html
+ <head> 
+  … 
+    <!-- Bootstrap CSS --> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/x.y.z/css/bootstrap.min.css" …>  
+… 
+</head
+```
+
+### Step 3: Apply CSS in Component HTML template
+
+```html
+<div class="container"> 
+  <h1 class="mt-3 mb-3">Sales Team</h1> 
+  <app-sales-person-list></app-sales-person-list> 
+</div>
+```
+
+### Step 4: Apply CSS in Component HTML Table
+
+```html
+<table class="table table-hover"> 
+  <thead class="thead-dark"> 
+    <tr> 
+      <th>First Name</th> 
+      <th>Last Name</th> 
+      <th>Email</th> 
+      <th>Sales Volume</th> 
+    </tr>             
+  </thead> 
+  <tbody> 
+  ... ... 
+  </tbody> 
+</table>
+```
+
+### Step 5: Update TypeScript component file
+
+```typescript
+import { Component, OnInit } from '@angular/core'; 
+@Component({ 
+selector: 'app-sales-person-list', 
+templateUrl: './sales-person-list-bootstrap.component.html', 
+styleUrls: ['./sales-person-list.component.css'] 
+}) 
+export class SalesPersonListComponent implements OnInit { 
+... ... 
+File: src/app/sales-person-list/sales-person-list-bootstrap.component.html
+ <table class="table table-hover"> 
+<thead class="thead-dark"> 
+<tr> 
+<th>First Name</th> 
+<th>Last Name</th> 
+<th>Email</th> 
+</tr>             
+</thead> 
+}
+```
+
+# Angular: Conditionals and Formatting
+
+## Goal
+
+Add a new column to check if a sales person has met their quota
+
+### Conditional: `ngIf`
+
+  - Angular provides a structural directive: ngIf
+  - Show content based on a condition / boolean expression
+
+```html
+<div *ngIf="some boolean expression"> 
+Show this content if the boolean expression is true 
+</div>
+```
+### Example
+
+**Our example**: `if salesVolume >= 50000`, display Yes ... else No
+
+### Conditional with `ngIf`
+
+```html
+<table class="table table-hover"> 
+  <thead class="thead-dark"> 
+    <tr> 
+      ... 
+      <th>Sales Volume</th> 
+      <th>Met Quota?</th> 
+    </tr>             
+  </thead> 
+  Conditional
+  <tbody> 
+    <tr *ngFor="let tempSalesPerson of salesPersonList"> 
+    ... 
+      <td>{{ tempSalesPerson.salesVolume }}</td> 
+      <td> 
+        <div *ngIf="tempSalesPerson.salesVolume >= 60000; else myElseBlock">Yes</div> 
+        <ng-template #myElseBlock>No</ng-template> 
+      </td> 
+    </tr> 
+</tbody> 
+</table>
+```
+
+### Angular Structural Directives
+
+- Most commonly used structural directives: ngFor and ngIf
+- Also there other such as ngSwitch, ngStyle etc ...
+- See the documentation for details
+
+### Goal
+ 
+ - Format the Sales Volume as a currency, U.S. Dollars
+
+### Currency Formatting
+
+- Angular provides currency formatting using Angular Pipes
+- You send data to a pipe for formatting
+
+```html
+<p>Cost: {{ someValue | currency:'USD' }} </p>
+```
+
+### Formatting with Currency Pipe
+
+```html
+<table class="table table-hover"> 
+    ... 
+    <tbody> 
+        <tr *ngFor="let tempSalesPerson of salesPersonList"> 
+  ... 
+            <td>{{ tempSalesPerson.salesVolume | currency:'USD' }}</td> 
+            ... 
+       </tr> 
+    </tbody> 
+</table>
+```
