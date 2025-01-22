@@ -42,11 +42,11 @@ Just add basic HTML header : `<h1>Sales Team</h1>` in **File** : `src/app/app.co
 ###  Step 3: Generate a new component
 
 `ng generate component sales-person-list`
-`CREATE src/app/sales-person-list/sales-person-list.component.css (0 bytes)` 
-`CREATE src/app/sales-person-list/sales-person-list.component.html (32 bytes) `
-`CREATE src/app/sales-person-list/sales-person-list.component.spec.ts (693 bytes)` 
-`CREATE src/app/sales-person-list/sales-person-list.component.ts (311 bytes)` 
-`UPDATE src/app/app.module.ts (436 bytes)`
+- CREATE src/app/sales-person-list/sales-person-list.component.css (0 bytes) 
+- CREATE src/app/sales-person-list/sales-person-list.component.html (32 bytes)
+- CREATE src/app/sales-person-list/sales-person-list.component.spec.ts (693 bytes) 
+- CREATE src/app/sales-person-list/sales-person-list.component.ts (311 bytes)
+- UPDATE src/app/app.module.ts (436 bytes)
 
  ### About the Generated Files : 
 `sales-person-list.component.ts`: the component class 
