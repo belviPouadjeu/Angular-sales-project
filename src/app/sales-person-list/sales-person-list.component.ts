@@ -6,7 +6,7 @@ import { SalesPerson } from './sales-person';
   selector: 'app-sales-person-list',
   standalone: true, // Mark it as a standalone component
   imports: [CommonModule], // Module here
-  templateUrl: './sales-person-list.component.html',
+  templateUrl: './sales-person-list-bootstrap.component.html',
   styleUrls: ['./sales-person-list.component.css']
 })
 export class SalesPersonListComponent {
