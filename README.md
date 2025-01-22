@@ -53,25 +53,6 @@ Just add basic HTML header : `<h1>Sales Team</h1>` in **File** : `src/app/app.co
 `sales-person-list.component.html`: the component template HTML 
 `sales-person-list.component.css`: the component private CSS 
 `sales-person-list.component.spec.ts`: the unit test specifications 
-`UPDATE src/app/app.module.ts`: Adds the component to the main application module
-
-## Main Application Module
-
-`UPDATE src/app/app.module.ts`: Adds the component to the main application module
-
-```TypeScript
-import { AppComponent } from './app.component'; 
-import { SalesPersonListComponent } from './sales-person-list/sales-person-list.component'; 
-@NgModule({ 
-  declarations: [ 
-    AppComponent, 
-    SalesPersonListComponent 
-  ], 
-... 
-}) 
-export class AppModule { }
-```
- Our new component was automatically added by the  ng generate component ...  command
 
  ### Step 4: Add new component selector to app template page
 
@@ -83,11 +64,16 @@ export class AppModule { }
 
 
 2. **File**: `src/app/sales-person-list/sales-person-list.component.ts`
+- Add :
+   - standalone: true, 
+   - imports: [CommonModule], 
 
 ```javascript
 import { Component, OnInit } from '@angular/core'; 
  @Component({ 
-selector: 'app-sales-person-list', 
+selector: 'app-sales-person-list',
+standalone: true,
+imports: [CommonModule],
 templateUrl: './sales-person-list.component.html', 
 styleUrls: ['./sales-person-list.component.css'] 
 }) 
@@ -109,9 +95,7 @@ Creates a basic TypeScript class
  **File** : `src/app/sales-person-list/sales-person.ts`
 
  ```TypeScript
- export class SalesPerson { 
 export class SalesPerson { 
-}
  constructor(public firstName: string, 
 public lastName: string, 
 public email: string, 
