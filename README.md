@@ -82,7 +82,7 @@ export class AppModule { }
 `<app-sales-person-list></app-sales-person-list>`
 
 
-2. **File **: `src/app/sales-person-list/sales-person-list.component.ts`
+2. **File**: `src/app/sales-person-list/sales-person-list.component.ts`
 
 ```javascript
 import { Component, OnInit } from '@angular/core'; 
@@ -99,14 +99,14 @@ constructor() { }
 ```
 Later on, we will add sample data here
 
- **File ** : `src/app/sales-person-list/sales-person-list.component.html` 
+ **File** : `src/app/sales-person-list/sales-person-list.component.html` 
  `<p>sales-person-list works!</p>`
 
  ### Step 5: Generate a SalesPerson class
 Creates a basic TypeScript class
  `ng generate class sales-person-list/SalesPerson`
 
- **File ** : `src/app/sales-person-list/sales-person.ts`
+ **File** : `src/app/sales-person-list/sales-person.ts`
 
  ```TypeScript
  export class SalesPerson { 
@@ -123,7 +123,7 @@ Creates a basic TypeScript class
 
 ### Step 6: In SalesPersonListComponent, create sample data
 
- **File **: `src/app/sales-person-list/sales-person-list.component.ts`
+ **File**: `src/app/sales-person-list/sales-person-list.component.ts`
 
 ```TypeScript
 import { Component, OnInit } from '@angular/core'; 
@@ -149,7 +149,7 @@ new SalesPerson("Mai", "Truong", "mai.truong@luv2code.com", 60000)
 
 ### Step 7: In sales-person-list template file, build HTML table by looping over data
 
- **File **: `src/app/sales-person-list/sales-person-list.component.html`
+ **File**: `src/app/sales-person-list/sales-person-list.component.html`
 
  ```html
  <table border="1"> 
